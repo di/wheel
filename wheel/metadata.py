@@ -45,7 +45,7 @@ def generate_requirements(extras_require):
     and ('Provides-Extra', 'extra') tuples.
 
     extras_require is a dictionary of {extra: [requirements]} as passed to setup(),
-    using the empty extra {'': [requirements]} to hold install_requires.
+    using the extra {None: [requirements]} to hold install_requires.
     """
     for extra, depends in extras_require.items():
         condition = ''
