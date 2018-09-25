@@ -49,12 +49,12 @@ def generate_requirements(extras_require):
     """
     for extra, depends in extras_require.items():
         condition = ''
-        extra = extra or ''
-        if ':' in extra:  # setuptools extra:condition syntax
-            extra, condition = extra.split(':', 1)
 
-        extra = pkg_resources.safe_extra(extra)
-        if extra:
+        if extra is not None:
+            if ':' in extra:  # setuptools extra:condition syntax
+                extra, condition = extra.split(':', 1)
+
+            extra = pkg_resources.safe_extra(extra)
             yield 'Provides-Extra', extra
             if condition:
                 condition = "(" + condition + ") and "
