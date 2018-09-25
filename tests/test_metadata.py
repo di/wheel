@@ -8,6 +8,7 @@ def test_pkginfo_to_metadata(tmpdir):
         ('Version', '0.1'),
         ('Requires-Dist', "pip @ https://github.com/pypa/pip/archive/1.3.1.zip"),
         ('Provides-Extra', ''),
+        ('Requires-Dist', 'foobar; extra == \'\''),
         ('Requires-Dist', 'pywin32; (sys_platform=="win32") and extra == \'\''),
         ('Provides-Extra', 'signatures'),
         ('Requires-Dist', 'pyxdg; (sys_platform!="win32") and extra == \'signatures\''),
@@ -40,6 +41,9 @@ Provides-Extra: faster-signatures""")
 pip@https://github.com/pypa/pip/archive/1.3.1.zip
 
 [empty+extra]
+
+[]
+foobar
 
 [:sys_platform=="win32"]
 pywin32
